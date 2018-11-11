@@ -132,7 +132,7 @@ function(VREP_GENERATE_STUBS GENERATED_OUTPUT_DIR)
     cmake_parse_arguments(VREP_GENERATE_STUBS "" "XML_FILE;LUA_FILE" "" ${ARGN})
     if("${VREP_GENERATE_STUBS_LUA_FILE}" STREQUAL "")
         add_custom_command(OUTPUT ${GENERATED_OUTPUT_DIR}/stubs.cpp ${GENERATED_OUTPUT_DIR}/stubs.h
-          COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/external/v_repStubsGen/generate.py --xml-file ${VREP_GENERATE_STUBS_XML_FILE} --gen-all ${GENERATED_OUTPUT_DIR}
+            COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/external/v_repStubsGen/generate.py --xml-file ${VREP_GENERATE_STUBS_XML_FILE} --gen-all ${GENERATED_OUTPUT_DIR}
             DEPENDS ${VREP_GENERATE_STUBS_XML_FILE})
     else()
         add_custom_command(OUTPUT ${GENERATED_OUTPUT_DIR}/stubs.cpp ${GENERATED_OUTPUT_DIR}/stubs.h ${GENERATED_OUTPUT_DIR}/lua_calltips.cpp
